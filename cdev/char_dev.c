@@ -80,7 +80,7 @@ void __exit mychar_exit(void){
 	
 	// release the major number
 	unregister_chrdev_region(mychar_dev_number, 1);
-
+	// destroy mychar device  (if you don't do this you will get a kernel Oops the second time you insmod the driver)
 	device_destroy(mychar_class, mychar_dev_number);
 	// destroy mychar_class
 	class_destroy(mychar_class);
