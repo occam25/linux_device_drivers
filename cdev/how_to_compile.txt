@@ -1,0 +1,2 @@
+echo "obj-m  +=  source.o"
+make -C <path_to_kernel_sources> M=`pwd` modules
