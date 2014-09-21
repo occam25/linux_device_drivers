@@ -1,1 +1,0 @@
-cmd_/home/javi/LDD/linux_device_drivers/cdev/char_dev.ko := ld -r -m elf_i386 -T /usr/src/linux-headers-3.8.0-32-generic/scripts/module-common.lds --build-id  -o /home/javi/LDD/linux_device_drivers/cdev/char_dev.ko /home/javi/LDD/linux_device_drivers/cdev/char_dev.o /home/javi/LDD/linux_device_drivers/cdev/char_dev.mod.o
