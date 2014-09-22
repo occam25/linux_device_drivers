@@ -61,10 +61,12 @@ static ssize_t mychar_write(struct file *file, const char __user *ubuf, size_t u
 	if((ubuf_len + *pos) > KMEM_SIZE)
 		ubuf_len = KMEM_SIZE - *pos;
 	
+	memset(mychar_devp->kmem, '\0', KMEM_SIZE);
+	
 	printk(KERN_INFO "writting %d byte(s) to mychar device\n", ubuf_len);
 	nbytes = ubuf_len - copy_from_user(mychar_devp->kmem + *pos, ubuf, ubuf_len);
 	*pos += nbytes;
-	memset(mychar_devp->kmem, '\0', KMEM_SIZE);
+	
 	printk(KERN_INFO "mychar device writed [nbytes=%d, pos=%d]\n", nbytes, (int)*pos);
 	return nbytes;
 }
